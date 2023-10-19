@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_4
 {
-    class MyComplex : IMyNumber<MyComplex>
+    public class MyComplex : IMyNumber<MyComplex>
     {
         private double re;
         private double mi;
@@ -35,21 +35,19 @@ namespace Lab_4
 
         public MyComplex Divide(MyComplex that)
         {
-            if (that.re != 0) 
+            if (that.re == 0) 
             {
-                return new MyComplex((((this.re * that.re) + (this.mi * that.mi)) /
+                
+                throw new DivideByZeroException();
+
+            }
+            return new MyComplex((((this.re * that.re) + (this.mi * that.mi)) /
                                (Math.Pow(that.re, 2) + Math.Pow(that.mi, 2))),
 
                                (((this.mi * that.re) - (this.re * that.mi)) /
-                               (Math.Pow(that.re, 2) + Math.Pow(that.mi, 2)))); 
+                               (Math.Pow(that.re, 2) + Math.Pow(that.mi, 2))));
 
-            }
-            else
-            {
-                throw new DivideByZeroException();
-            }
-            
-                                
+
 
         }
         public override string ToString()

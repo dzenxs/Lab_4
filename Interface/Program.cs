@@ -8,7 +8,7 @@ namespace Lab_4
 {
     class Program
     {
-        static void testAPlusBSquare<T>(T a, T b) where T : IMyNumber<T>
+        /*static void testAPlusBSquare<T>(T a, T b) where T : IMyNumber<T>
         {
             Console.WriteLine("=== Starting testing (a+b)^2=a^2+2ab+b^2 with a = " + a + ", b = " + b + " ===");
             T aPlusB = a.Add(b);
@@ -32,11 +32,36 @@ namespace Lab_4
             wholeRightPart = wholeRightPart.Add(curr);
             Console.WriteLine("a^2+2ab+b^2 = " + wholeRightPart);
             Console.WriteLine("=== Finishing testing (a+b)^2=a^2+2ab+b^2 with a = " + a + ", b = " + b + " ===");
-        }
+        }*/
         static void Main(string[] args)
         {
-            testAPlusBSquare(new MyFrac(1, 3), new MyFrac(1, 6));
-            testAPlusBSquare(new MyComplex(1, 3), new MyComplex(1, 6));
+            /* testAPlusBSquare(new MyFrac(1, 3), new MyFrac(1, 6));
+             testAPlusBSquare(new MyComplex(1, 3), new MyComplex(1, 6));
+             Console.ReadKey();*/
+
+
+            MyFrac[] fractions = new MyFrac[]
+                {
+                new MyFrac(3, 4),
+                new MyFrac(1, 2),
+                new MyFrac(5, 6),
+                new MyFrac(2, 3),
+                new MyFrac(1, 3)
+                };
+
+            Console.WriteLine("Before Sorting:");
+            foreach (var frac in fractions)
+            {
+                Console.WriteLine(frac);
+            }
+
+            Array.Sort(fractions);
+
+            Console.WriteLine("\nAfter Sorting:");
+            foreach (var frac in fractions)
+            {
+                Console.WriteLine(frac);
+            }
             Console.ReadKey();
         }
     }
